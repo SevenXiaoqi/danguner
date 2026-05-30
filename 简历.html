@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>李莹霞｜个人简历</title>
+  <style>
+    :root {
+      --bg: #eef3f9;
+      --paper: #ffffff;
+      --text: #1f2937;
+      --muted: #64748b;
+      --primary: #1d4ed8;
+      --line: #dbe4f0;
+      --soft: #eff6ff;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+      --page-width: 210mm;
+      --page-height: 297mm;
+      --page-padding-x: 16mm;
+      --page-padding-y: 12mm;
+      --font-name: 30px;
+      --font-badge: 12px;
+      --font-summary: 12px;
+      --font-section: 14px;
+      --font-meta: 11px;
+      --font-time: 12px;
+      --font-title: 14px;
+      --font-org: 12px;
+      --font-body: 12px;
+      --font-tag: 12px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      line-height: 1.35;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .page {
+      width: min(var(--page-width), calc(100vw - 24px));
+      margin: 12px auto;
+      padding: 0;
+    }
+
+    .resume {
+      width: 100%;
+      background: var(--paper);
+      border: none;
+      box-shadow: var(--shadow);
+      overflow: visible;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .hero {
+      padding: 12mm var(--page-padding-x) 8mm;
+      border-bottom: 1px solid #d6deea;
+      background:
+        linear-gradient(180deg, rgba(29,78,216,0.04), rgba(255,255,255,0)),
+        #fff;
+    }
+
+    .hero-inner { position: relative; }
+
+    .name-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: nowrap;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: var(--font-name);
+      line-height: 1.12;
+      letter-spacing: 1.2px;
+      color: #0f172a;
+    }
+
+    .badge {
+      padding: 5px 11px;
+      background: #dbeafe;
+      border: 1px solid #bfdbfe;
+      color: #1e3a8a;
+      border-radius: 999px;
+      font-size: var(--font-badge);
+      line-height: 1.2;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .summary {
+      margin: 0;
+      font-size: var(--font-summary);
+      line-height: 1.55;
+      color: #475569;
+      max-width: 100%;
+    }
+
+    .content { padding: 6mm var(--page-padding-x) 8mm; }
+
+    .content, .section, .card, .edu-item, .exp-item, .project-item, .profile-row {
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    .section {
+      margin-top: 6px;
+      break-inside: auto;
+      page-break-inside: auto;
+      page-break-after: auto;
+      widows: 2;
+      orphans: 2;
+    }
+
+    .page {
+      page-break-after: auto;
+    }
+
+    .section + .section {
+      margin-top: 4px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0 0 6px;
+      font-size: var(--font-section);
+      line-height: 1.25;
+      font-weight: 800;
+      letter-spacing: 0.3px;
+      color: #0f172a;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #dbe4f0;
+      white-space: nowrap;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 72px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), rgba(29,78,216,0));
+    }
+
+    .section-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--primary);
+      flex: 0 0 auto;
+    }
+    .section-icon svg { display: block; width: 100%; height: 100%; }
+
+    .card {
+      background: transparent;
+      border: none;
+      padding: 0;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 0;
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 22px;
+      border-bottom: 1px dashed #e5e7eb;
+    }
+
+    .profile-row:last-child {
+      border-bottom: none;
+    }
+
+    .profile-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 6px;
+      align-items: baseline;
+      padding: 5px 0;
+      background: transparent;
+      border: none;
+      min-width: 0;
+    }
+
+    .profile-item:hover {
+      background: rgba(239,246,255,0.45);
+    }
+
+    .profile-key {
+      color: var(--muted);
+      font-size: var(--font-meta);
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .profile-val {
+      color: #0f172a;
+      font-size: var(--font-meta);
+      line-height: 1.35;
+      font-weight: 700;
+      min-width: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .edu-item, .exp-item, .project-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 8px;
+      padding: 6px 0;
+      border-bottom: 1px solid #e5e7eb;
+      break-inside: auto;
+      page-break-inside: auto;
+    }
+
+    .edu-item:not(:last-child), .exp-item:not(:last-child), .project-item:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    .edu-item:hover, .exp-item:hover, .project-item:hover {
+      background: rgba(239,246,255,0.25);
+    }
+    .edu-item:last-child, .exp-item:last-child, .project-item:last-child { border-bottom: none; }
+
+    .time {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: var(--font-time);
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .position {
+      font-weight: 800;
+      color: #111827;
+      font-size: var(--font-title);
+      line-height: 1.35;
+    }
+
+    .org {
+      color: var(--muted);
+      font-size: var(--font-org);
+      line-height: 1.35;
+      font-weight: 600;
+    }
+    .subtext {
+      color: var(--muted);
+      font-size: var(--font-org);
+      line-height: 1.45;
+      margin: 2px 0 0;
+    }
+
+    ul.clean {
+      margin: 4px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    ul.clean li {
+      position: relative;
+      padding-left: 14px;
+      margin: 1px 0;
+      font-size: var(--font-body);
+      line-height: 1.48;
+      color: #1f2937;
+    }
+
+    ul.clean li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #111827;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+    }
+
+    .tag {
+      position: relative;
+      padding: 2px 0 2px 12px;
+      font-size: var(--font-tag);
+      font-weight: 700;
+      color: #111827;
+      white-space: nowrap;
+      line-height: 1.3;
+    }
+
+    .tag::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #111827;
+    }
+
+    .floating-actions {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      box-shadow: none;
+    }
+
+    .action-btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .action-print { background: #111827; color: #fff; }
+    .action-download { background: #2563eb; color: #fff; }
+
+    @media (max-width: 760px) {
+      .page { width: calc(100vw - 16px); min-height: auto; margin: 8px auto; }
+      .resume { width: 100%; min-height: auto; }
+      .content { padding: 14px 16px 16px; }
+      .hero { padding: 16px 16px 12px; }
+      :root {
+        --font-name: 26px;
+        --font-badge: 12px;
+        --font-summary: 12px;
+        --font-section: 15px;
+        --font-meta: 12px;
+        --font-time: 12px;
+        --font-title: 15px;
+        --font-org: 12px;
+        --font-body: 12px;
+        --font-tag: 12px;
+      }
+      .name-row { flex-wrap: wrap; }
+      .badge { white-space: normal; }
+      .profile-row { grid-template-columns: 1fr; }
+      .profile-grid { row-gap: 2px; }
+      .edu-item, .exp-item, .project-item { grid-template-columns: 1fr; }
+      .profile-item { grid-template-columns: 72px 1fr; }
+      .profile-val { text-align: left; }
+      .floating-actions { right: 12px; left: 12px; bottom: 12px; justify-content: space-between; border-radius: 16px; }
+      .action-btn { flex: 1; }
+    }
+
+    @media print {
+      @page { size: A4; margin: 8mm; }
+      :root {
+        --font-name: 28px;
+        --font-badge: 11px;
+        --font-summary: 11.5px;
+        --font-section: 13.5px;
+        --font-meta: 10.5px;
+        --font-time: 11.5px;
+        --font-title: 13px;
+        --font-org: 11.5px;
+        --font-body: 11.5px;
+        --font-tag: 11.5px;
+      }
+      html, body {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        overflow: visible;
+        background: #fff !important;
+        color: var(--text) !important;
+      }
+      * {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        box-shadow: none !important;
+      }
+      .page {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 0;
+        break-after: auto;
+        page-break-after: auto;
+      }
+      .resume {
+        width: 100%;
+        min-height: auto;
+        box-shadow: none;
+        border-radius: 0;
+        border: none;
+        overflow: visible;
+      }
+      .hero {
+        background:
+          linear-gradient(180deg, rgba(29,78,216,0.04), rgba(255,255,255,0)),
+          #fff !important;
+        padding-top: 8mm;
+        padding-bottom: 4mm;
+      }
+      .content {
+        padding-top: 5mm;
+        padding-bottom: 0;
+      }
+      .section,
+      .card,
+      .profile-grid,
+      .profile-row,
+      .edu-item,
+      .exp-item,
+      .project-item,
+      ul.clean,
+      ul.clean li {
+        break-inside: auto !important;
+        page-break-inside: auto !important;
+      }
+      .section {
+        margin-top: 5px;
+        break-before: auto;
+        break-after: auto;
+        page-break-before: auto;
+        page-break-after: auto;
+      }
+      .section-title {
+        break-after: avoid;
+        page-break-after: avoid;
+        margin-bottom: 5px;
+      }
+      .profile-grid { row-gap: 0; }
+      .profile-row { grid-template-columns: 1fr 1fr; column-gap: 28px; }
+      .profile-item {
+        grid-template-columns: 64px 1fr;
+        padding: 6px 0;
+      }
+      .edu-item, .exp-item, .project-item {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        padding: 5px 0;
+      }
+      .title-row,
+      .time,
+      .position,
+      .org,
+      .subtext,
+      .tag,
+      p {
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+      .profile-item:hover,
+      .edu-item:hover,
+      .exp-item:hover,
+      .project-item:hover { background: transparent !important; }
+      .floating-actions { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <article class="resume">
+      <header class="hero">
+        <div class="hero-inner">
+          <div class="name-row">
+            <h1>李莹霞</h1>
+            <!-- ｜实验/研发/检测方向 -->
+            <!-- <div class="badge">化学工程与技术｜硕士在读</div> -->
+          </div>
+          <p class="summary">具备化学分析、实验室检测、仪器操作与科研项目经验，熟练掌握数据分析与报告编写，善于在实践中发现问题并推动解决，期待在岗位上创造价值。</p>
+        </div>
+      </header>
+
+      <div class="content">
+        <!-- 基本信息 -->
+        <section class="section">
+          <h2 class="section-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 13.5c2.485 0 4.5-2.239 4.5-5S14.485 3.5 12 3.5 7.5 5.739 7.5 8.5s2.015 5 4.5 5Z" stroke="currentColor" stroke-width="1.8"/><path d="M4.5 20c1.8-3.2 4.4-4.8 7.5-4.8s5.7 1.6 7.5 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>基础信息</h2>
+          <div class="card profile-grid">
+            <div class="profile-row">
+              <div class="profile-item"><span class="profile-key">出生年月</span><span class="profile-val">1998年01月</span></div>
+              <div class="profile-item"><span class="profile-key">性别</span><span class="profile-val">女</span></div>
+            </div>
+            <div class="profile-row">
+              <div class="profile-item"><span class="profile-key">籍贯</span><span class="profile-val">山西省临汾市</span></div>
+              <div class="profile-item"><span class="profile-key">政治面貌</span><span class="profile-val">中共党员</span></div>
+            </div>
+            <div class="profile-row">
+              <div class="profile-item"><span class="profile-key">电话</span><span class="profile-val">16611615783</span></div>
+              <div class="profile-item"><span class="profile-key">邮箱</span><span class="profile-val">17303453629@163.com</span></div>
+            </div>
+          </div>
+        </section>
+        <!-- 教育背景 -->
+        <section class="section">
+          <h2 class="section-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 7.5 12 3l9 4.5-9 4.5-9-4.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 10v4.2c0 1.2 2.7 3.3 6 3.3s6-2.1 6-3.3V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>教育背景</h2>
+          <div class="card">
+            <div class="edu-item">
+              <div class="time">2023.09 - 2026.06</div>
+              <div>
+                <div class="title-row">
+                  <div class="position">天津工业大学（双一流）</div>
+                  <div class="org">化学工程与技术｜工学硕士</div>
+                </div>
+                <p class="subtext"><strong>主修课程：</strong>材料结构与表征、新型能源材料、分离工程、表面活性剂合成、化工热力学</p>
+              </div>
+            </div>
+            <div class="edu-item">
+              <div class="time">2017.09 - 2021.06</div>
+              <div>
+                <div class="title-row">
+                  <div class="position">晋中学院</div>
+                  <div class="org">应用化学｜理学学士</div>
+                </div>
+                <p class="subtext"><strong>主修课程：</strong>无机化学、有机化学、物理化学、分析化学、化工制图、煤质分析、化工原理</p>
+              </div>
+            </div>
+          </div>
+        </section>
+          <!-- 专业技能 -->
+          <section class="section">
+            <h2 class="section-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5 14.5 8l4.9.7-3.6 3.5.8 5L12 15.8 7.4 17.2l.8-5L4.6 8.7 9.5 8 12 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>专业技能</h2>
+            <div class="card">
+              <ul class="clean" style="margin-top:0;">
+                <li>熟练使用MATLAB、Origin、Python、ChemOffice、AutoCAD、Aspen Plus、Photoshop 等工具。</li>
+                <li>熟练操作 GC、HPLC、AAS、AFS 等设备，并具备完整的数据处理与分析能力。</li>
+                <li>熟悉精馏、萃取、吸收等典型实验装置的原理与操作流程。</li>
+                <li>熟练结合主流 AI 助手（ChatGPT、Copilot、文心一言等）进行技术文档优化与算法设计，提升化工数据处理与流程建模效率。</li>
+              </ul>
+            </div>
+        </section>
+        <!-- 工作经历 -->
+        <section class="section">
+          <h2 class="section-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5h11A2.5 2.5 0 0 1 20 7.5v9A2.5 2.5 0 0 1 17.5 19h-11A2.5 2.5 0 0 1 4 16.5v-9Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 5V3.8A1.8 1.8 0 0 1 9.8 2h4.4A1.8 1.8 0 0 1 16 3.8V5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 11.5h6M9 15h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>工作经历</h2>
+          <div class="card">
+            <div class="exp-item">
+              <div class="time">2020.12 - 2023.03</div>
+              <div>
+                <div class="title-row">
+                  <div class="position">山西榆鼎环境监测公司</div>
+                  <div class="org">实验室技术员</div>
+                </div>
+                <ul class="clean">
+                  <li>负责水质中硫酸盐、pH、重金属、有机物等指标检测，完成数据计算与分析。</li>
+                  <li>独立编制符合规范的质量检测报告，确保数据真实、准确。</li>
+                  <li>使用 GC、HPLC、AAS 等仪器完成日常检测任务。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 项目经历 -->
+        <section class="section">
+          <h2 class="section-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.8 14.8 8l5.7.8-4.1 4 1 5.6L12 16.8 6.6 18.4l1-5.6-4.1-4 5.7-.8L12 2.8Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span>项目经历</h2>
+          <div class="card">
+            <div class="project-item">
+              <div class="time">研究负责人</div>
+              <div>
+                <div class="title-row"><div class="position">基于人工智能算法的光谱定量分析</div></div>
+                <ul class="clean">
+                  <li>完成复杂样品真实值的精准测定，掌握复杂样品的前处理与检测分析流程。</li>
+                  <li>将人工智能算法引入光谱分析领域，构建光谱定量分析模型，实现多组分同时预测。</li>
+                  <li>为后续引入深度学习模型（如 CNN）进行光谱特征提取提供了数据与方法基础。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="time">实验负责人</div>
+              <div>
+                <div class="title-row"><div class="position">五齿席夫碱镝单分子磁体材料的合成及磁性研究</div></div>
+                <ul class="clean">
+                  <li>设计并合成席夫碱配体与镝离子配合物 Dy₂(NO₃)₂(L1)₂(H₂O)₂。</li>
+                  <li>获得高性能单分子磁体，为分子存储芯片提供材料基础。</li>
+                </ul>
+              </div>
+            </div>
+            <div class="project-item">
+              <div class="time">实验负责人</div>
+              <div>
+                <div class="title-row"><div class="position">手工制皂的开发</div></div>
+                <ul class="clean">
+                  <li>完整执行制皂流程：称量、低温皂化、入模、保温、成熟期管理。</li>
+                  <li>确保产品品质稳定，具备小试工艺开发能力。</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- 荣誉奖励 -->
+        <section class="section">
+          <h2 class="section-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 5h8v3a4 4 0 0 1-8 0V5Z" stroke="currentColor" stroke-width="1.8"/><path d="M8 7H6.2A2.2 2.2 0 0 0 4 9.2c0 1.9 1.5 3.4 3.4 3.4H8M16 7h1.8A2.2 2.2 0 0 1 20 9.2c0 1.9-1.5 3.4-3.4 3.4H16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M9 16.2V19h6v-2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M7 21h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>荣誉奖励</h2>
+          <div class="card">
+            <div class="tags">
+              <span class="tag">英语四级</span>
+              <span class="tag">国家计算机等级二级（Office）</span>
+              <span class="tag">学业一等奖学金</span>
+              <span class="tag">学业三等奖学金</span>
+              <span class="tag">SCI 期刊发表 1 篇，1 篇在投</span>
+              <span class="tag">2025 BCEIA 最佳墙报奖</span>
+            </div>
+          </div>
+        </section>
+        <!-- 自我评价 -->
+        <section class="section">
+          <h2 class="section-title"><span class="section-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3.5 14.5 8l4.9.7-3.6 3.5.8 5L12 15.8 7.4 17.2l.8-5L4.6 8.7 9.5 8 12 3.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>自我评价</h2>
+          <div class="card">
+            <p style="margin:0; font-size:12px;">工作中细心负责，抗压能力强。具备出色的团队协作与快速学习能力，能主动发现并解决实践中的具体问题，推动任务高效落地。</p>
+          </div>
+        </section>
+      </div>
+    </article>
+  </div>
+  <!-- 打印导出操作 -->
+  <div class="floating-actions" aria-label="打印导出操作">
+    <button class="action-btn action-print" type="button" onclick="window.print()">打印</button>
+    <button class="action-btn action-download" type="button" onclick="window.print()">导出 PDF</button>
+  </div>
+</body>
+</html>
